@@ -1,0 +1,14 @@
+version: "3.9"
+services:
+  target:
+    build:
+      context: .
+      dockerfile: Dockerfile-machine
+    ports:
+      - "1337:8080"
+  cnc:
+    image: "alxchk/pupy:unstable"
+    ports:
+      - "2022:22"
+    volumes:
+      - "/tmp/projects:/projects"
